@@ -10,7 +10,10 @@
     "e2e": "ng e2e",
     "build_device": "ng build --prod device-mgt",
     "npm_pack_device": "cd dist/device-mgt && npm pack",
-    "package": "npm run build_device && npm run npm_pack_device"
+    "package_device": "npm run build_device && npm run npm_pack_device",
+    "build_product": "ng build --prod product-mgt",
+    "npm_pack_product": "cd dist/product-mgt && npm pack",
+    "package_product": "npm run build_product && npm run npm_pack_product"
   },
   "private": true,
   "dependencies": {

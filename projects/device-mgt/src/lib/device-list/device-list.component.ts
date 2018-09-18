@@ -1,34 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-
+import { DeviceMgtService } from '../device-mgt.service';
 @Component({
   selector: 'iot-device-list',
   templateUrl: './device-list.component.html',
   styleUrls: ['./device-list.component.css']
 })
 export class DeviceListComponent implements OnInit {
-  dataSet = [
-    {
-      key    : '1',
-      name   : 'John Brown',
-      age    : 32,
-      address: 'New York No. 1 Lake Park'
-    },
-    {
-      key    : '2',
-      name   : 'Jim Green',
-      age    : 42,
-      address: 'London No. 1 Lake Park'
-    },
-    {
-      key    : '3',
-      name   : 'Joe Black',
-      age    : 32,
-      address: 'Sidney No. 1 Lake Park'
-    }
-  ];
-  constructor() { }
+  public dataList;
+  constructor(public deviceMgtService: DeviceMgtService) { }
 
   ngOnInit() {
+    this.deviceMgtService.getData().subscribe(data => {
+      this.dataList = data.list;
+      });
   }
 
 }
