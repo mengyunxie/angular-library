@@ -203,6 +203,46 @@
           }
         }
       }
+    },
+    "user-mgt": {
+      "root": "projects/user-mgt",
+      "sourceRoot": "projects/user-mgt/src",
+      "projectType": "library",
+      "prefix": "iot",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/user-mgt/tsconfig.lib.json",
+            "project": "projects/user-mgt/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/user-mgt/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/user-mgt/src/test.ts",
+            "tsConfig": "projects/user-mgt/tsconfig.spec.json",
+            "karmaConfig": "projects/user-mgt/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/user-mgt/tsconfig.lib.json",
+              "projects/user-mgt/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angularPortal"

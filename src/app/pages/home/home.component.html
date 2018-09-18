@@ -15,7 +15,7 @@
       <li nz-submenu>
         <span title><i class="anticon anticon-user"></i><span class="nav-text">User</span></span>
         <ul>
-          <li nz-menu-item>用户</li>
+          <li nz-menu-item><a routerLink="./user">用户</a></li>
           <li nz-menu-item>角色</li>
         </ul>
       </li>
@@ -23,8 +23,11 @@
   </nz-sider>
   <nz-layout>
     <nz-header style="background: #fff; padding:0;">
-      <i class="anticon trigger" [class.anticon-menu-fold]="!isCollapsed" [class.anticon-menu-unfold]="isCollapsed" (click)="isCollapsed=!isCollapsed"></i>
+      <i class="anticon trigger" [class.anticon-menu-fold]="!isCollapsed" [class.anticon-menu-unfold]="isCollapsed"
+        (click)="isCollapsed=!isCollapsed"></i>
       <span routerLink="../login">login </span>
+
+      <span style="float:right">{{userName}}</span>
     </nz-header>
     <nz-content style="margin:0 16px;">
       <nz-breadcrumb style="margin:16px 0;">
@@ -32,7 +35,7 @@
         <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
       </nz-breadcrumb>
       <div style="padding:24px; background: #fff; min-height: 360px;">
-          <router-outlet></router-outlet>
+        <router-outlet></router-outlet>
       </div>
     </nz-content>
     <nz-footer style="text-align: center;">sunseaiot ©2018</nz-footer>
@@ -41,4 +44,3 @@
 <ng-template #trigger>
   <i class="anticon anticon-up"></i>
 </ng-template>
-
