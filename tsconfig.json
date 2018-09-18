@@ -29,6 +29,12 @@
       ],
       "product-mgt/*": [
         "dist/product-mgt/*"
+      ],
+      "user-mgt": [
+        "dist/user-mgt"
+      ],
+      "user-mgt/*": [
+        "dist/user-mgt/*"
       ]
     }
   }

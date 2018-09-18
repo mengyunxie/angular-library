@@ -1,4 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { UserMgtService } from 'user-mgt';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,14 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 export class HomeComponent implements OnInit {
   isCollapsed = false;
   triggerTemplate = null;
+
+  public userName = 'string';
+
+  constructor(
+    private UserName: UserMgtService
+  ) {
+  }
+
   @ViewChild('trigger') customTrigger: TemplateRef<void>;
 
   /** custom trigger can be TemplateRef **/
@@ -15,5 +24,9 @@ export class HomeComponent implements OnInit {
     this.triggerTemplate = this.customTrigger;
   }
   ngOnInit() {
+    this.UserName.getVal().subscribe((user) => {
+      this.userName = user;
+    });
+
   }
 }
